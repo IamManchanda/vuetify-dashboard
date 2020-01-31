@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-app-bar color="primary lighten-1" app dark>
-      <v-toolbar-title class="ms-4">Vuetify Dashboard</v-toolbar-title>
+      <v-toolbar-title class="ms-4">{{ title }}</v-toolbar-title>
       <v-spacer />
       <v-btn
         v-for="link in links"
@@ -34,7 +34,7 @@
           <v-icon dark>mdi-copyright</v-icon>
           <span>
             {{ new Date().getFullYear() }} —
-            <strong>Vuetify</strong>
+            <strong>{{ title }}</strong>
           </span>
         </v-col>
       </v-row>
@@ -48,9 +48,11 @@ import uuidv4 from "uuid/v4";
 export default {
   name: "App",
   data: () => ({
+    title: "Vuetify Welcome",
     links: [
       { id: uuidv4(), label: "Home", url: "/" },
       { id: uuidv4(), label: "Login", url: "/login" },
+      { id: uuidv4(), label: "Dashboard", url: "/dashboard" },
     ],
   }),
 };
