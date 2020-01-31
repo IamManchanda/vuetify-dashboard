@@ -51,8 +51,8 @@ export default {
     title: "Vuetify Welcome",
     links: [
       { id: uuidv4(), label: "Home", url: "/" },
-      { id: uuidv4(), label: "Login", url: "/login" },
       { id: uuidv4(), label: "Dashboard", url: "/dashboard" },
+      { id: uuidv4(), label: "Login", url: "/login" },
     ],
   }),
 };
