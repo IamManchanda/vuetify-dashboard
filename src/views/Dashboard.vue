@@ -1,30 +1,33 @@
 <template>
-  <v-container class="fill-height" fluid>
-    <v-row align="center" justify="center">
-      <v-col cols="12" lg="10">
-        <v-card class="mx-auto">
-          <div class="pa-2">
-            <v-card-text>
-              <h1 class="headline mb-4">Dashboard</h1>
-              <v-data-table
-                :headers="headers"
-                :items="items"
-                :items-per-page="10"
-                class="elevation-1"
-                @click:row="handleSelectedRow"
-              />
-              <v-snackbar v-model="snackbar">
-                <span> You have selected {{ currentItemName }} </span>
-                <v-btn color="pink" text @click="snackbar = false">
-                  Close
-                </v-btn>
-              </v-snackbar>
-            </v-card-text>
-          </div>
-        </v-card>
-      </v-col>
-    </v-row>
-  </v-container>
+  <div>
+    <v-container class="fill-height" fluid>
+      <v-row align="center" justify="center">
+        <v-col cols="12" lg="10">
+          <v-card class="mx-auto">
+            <div class="pa-2">
+              <v-card-text>
+                <h1 class="headline mb-4">Dashboard</h1>
+                <v-data-table
+                  :headers="headers"
+                  :items="employees"
+                  :items-per-page="10"
+                  class="elevation-1"
+                  @click:row="handleSelectedRow"
+                />
+              </v-card-text>
+            </div>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-container>
+    <v-snackbar v-model="snackbar">
+      <span> You have selected {{ currentItemName }} </span>
+      <v-btn color="pink" text @click="snackbar = false">
+        Close
+      </v-btn>
+    </v-snackbar>
+    <div class="ma-6" />
+  </div>
 </template>
 
 <script>
@@ -46,7 +49,7 @@ export default {
       { text: "Protein (g)", value: "protein" },
       { text: "Iron (%)", value: "iron" },
     ],
-    items: [
+    employees: [
       {
         name: "Frozen Yogurt",
         calories: 159,
