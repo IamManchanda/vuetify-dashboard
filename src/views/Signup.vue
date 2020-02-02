@@ -24,10 +24,39 @@
                   :items="browsers"
                 />
                 <v-file-input label="Attach Profile Picture" color="primary" />
+                <v-dialog
+                  ref="dialog"
+                  v-model="menu"
+                  :close-on-content-click="false"
+                  :nudge-right="40"
+                  transition="scale-transition"
+                  offset-y
+                  width="290px"
+                >
+                  <template v-slot:activator="{ on }">
+                    <v-text-field
+                      v-model="date"
+                      label="Picker without buttons"
+                      prepend-icon="mdi-calendar"
+                      color="primary"
+                      readonly
+                      v-on="on"
+                    />
+                  </template>
+                  <v-date-picker
+                    v-model="date"
+                    @input="menu = false"
+                    scrollable
+                  />
+                </v-dialog>
+                <v-checkbox
+                  label="Agree with terms and conditions"
+                  color="primary"
+                />
               </v-card-text>
               <v-card-actions class="d-flex justify-center">
                 <div class="my-2">
-                  <v-btn color="primary" dark large>Submit</v-btn>
+                  <v-btn type="submit" color="primary" dark large>Submit</v-btn>
                 </div>
               </v-card-actions>
             </v-form>
@@ -43,6 +72,8 @@ export default {
   name: "Signup",
   data: () => ({
     browsers: ["Chrome", "Safari", "Firefox", "Edge", "Opera", "Brave"],
+    date: new Date().toISOString().substr(0, 10),
+    menu: false,
   }),
   computed: {},
   methods: {},
