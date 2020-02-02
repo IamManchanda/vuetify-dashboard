@@ -20,7 +20,7 @@
         </v-col>
       </v-row>
     </v-container>
-    <v-snackbar v-model="snackbar">
+    <v-snackbar v-model="snackbar" :left="$vuetify.breakpoint.lgAndUp">
       <span> You have selected {{ currentItemName }} </span>
       <v-btn color="pink" text @click="snackbar = false">
         Close
