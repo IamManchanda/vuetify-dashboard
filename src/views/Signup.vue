@@ -85,7 +85,9 @@
                   <v-btn type="submit" color="primary" class="me-4" dark large>
                     Submit
                   </v-btn>
-                  <v-btn @click="clear" dark large>Clear</v-btn>
+                  <v-btn @click="clear" dark large>
+                    Clear
+                  </v-btn>
                 </div>
               </v-card-actions>
             </v-form>
