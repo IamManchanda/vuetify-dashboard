@@ -112,7 +112,7 @@ export default {
     username: "",
     email: "",
     selected_browser: null,
-    tnc: "",
+    tnc: false,
   }),
   validations: {
     username: { required, maxLength: maxLength(10) },

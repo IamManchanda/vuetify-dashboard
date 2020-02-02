@@ -1,7 +1,9 @@
 <template>
   <v-app>
     <v-app-bar color="primary lighten-1" app dark>
-      <v-toolbar-title class="ms-4">{{ title }}</v-toolbar-title>
+      <v-toolbar-title class="ms-4">
+        {{ title }}
+      </v-toolbar-title>
       <v-spacer />
       <v-btn
         v-for="link in links"
@@ -13,6 +15,14 @@
       >
         {{ link.label }}
       </v-btn>
+      <div class="mt-5 mx-5 v-switch-custom-container">
+        <v-switch
+          color="white"
+          v-model="dark_theme"
+          @change="toggleTheme"
+          label="Dark Theme"
+        />
+      </div>
     </v-app-bar>
     <v-content>
       <router-view></router-view>
@@ -48,12 +58,26 @@ import uuidv4 from "uuid/v4";
 export default {
   name: "App",
   data: () => ({
-    title: "Vuetify Welcome",
+    title: "Vuetify Dashboard",
+    dark_theme: false,
     links: [
       { id: uuidv4(), label: "Dashboard", url: "/" },
       { id: uuidv4(), label: "Login", url: "/login" },
       { id: uuidv4(), label: "Signup", url: "/signup" },
     ],
   }),
+  methods: {
+    toggleTheme() {
+      this.$vuetify.theme.dark = this.dark_theme;
+    },
+  },
 };
 </script>
+
+<style lang="scss">
+.v-switch-custom-container {
+  .theme--dark.v-label {
+    color: white !important;
+  }
+}
+</style>
