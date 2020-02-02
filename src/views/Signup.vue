@@ -5,25 +5,25 @@
         <v-card class="mx-auto mt-6">
           <v-toolbar class="d-flex justify-center" color="primary" dark flat>
             <v-toolbar-title>
-              <h1 class="headline">Login</h1>
+              <h1 class="headline">Signup</h1>
             </v-toolbar-title>
           </v-toolbar>
           <div class="pa-4">
             <v-form>
               <v-card-text>
                 <v-text-field
-                  label="Username"
+                  label="Email"
+                  type="email"
                   color="primary"
-                  prepend-icon="mdi-account-circle"
+                  prepend-icon="mdi-email"
                 />
-                <v-text-field
+                <v-autocomplete
+                  label="Which Browser do you use"
                   color="primary"
-                  label="Password"
-                  :type="passwordEyeType"
-                  prepend-icon="mdi-lock"
-                  :append-icon="passwordEyeIcon"
-                  @click:append="handlePasswordEyeToggle"
+                  prepend-icon="mdi-edge"
+                  :items="browsers"
                 />
+                <v-file-input label="Attach Profile Picture" color="primary" />
               </v-card-text>
               <v-card-actions class="d-flex justify-center">
                 <div class="my-2">
@@ -40,22 +40,11 @@
 
 <script>
 export default {
-  name: "Login",
+  name: "Signup",
   data: () => ({
-    showPasswords: true,
+    browsers: ["Chrome", "Safari", "Firefox", "Edge", "Opera", "Brave"],
   }),
-  computed: {
-    passwordEyeType() {
-      return this.showPasswords ? "password" : "text";
-    },
-    passwordEyeIcon() {
-      return this.showPasswords ? "mdi-eye" : "mdi-eye-off";
-    },
-  },
-  methods: {
-    handlePasswordEyeToggle() {
-      this.showPasswords = !this.showPasswords;
-    },
-  },
+  computed: {},
+  methods: {},
 };
 </script>
