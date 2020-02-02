@@ -1,14 +1,14 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
+import Dashboard from "../views/Dashboard.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: "/",
-    name: "Home",
-    component: Home,
+    name: "Dashboard",
+    component: Dashboard,
   },
   {
     path: "/login",
@@ -19,11 +19,6 @@ const routes = [
     path: "/signup",
     name: "Signup",
     component: () => import("../views/Signup.vue"),
-  },
-  {
-    path: "/dashboard",
-    name: "Dashboard",
-    component: () => import("../views/Dashboard.vue"),
   },
 ];
 
